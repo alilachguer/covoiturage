@@ -31,10 +31,6 @@ export class AdminTrajetComponent implements OnInit {
     this.router = router;
   }
 
-  //this.route.params.subscribe(params => {
-    
-  //});
-
   //fonction creer un nouveu trajet
   createTrajet(){
     console.log("depart:", this.depart, ", arrivee:", this.arrivee, ", dstance:", this.distance);
@@ -57,12 +53,6 @@ export class AdminTrajetComponent implements OnInit {
       
     });
 
-    //route creation d'un nouveau trajet
-    // this.route.params.subscribe(params => {
-    //   console.log("appel create trajet ___ ")
-    //   this.createTrajet();
-    // });
-    
   }
 
 }

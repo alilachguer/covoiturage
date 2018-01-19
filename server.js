@@ -10,7 +10,6 @@ const assert = require('assert');
 const mongoClient = require('mongodb').MongoClient;
 const mongo_url = "mongodb://localhost:27017";
 
-//const router = express.Router();
 
 app.use(cors());
 
@@ -56,13 +55,6 @@ function trajetResearch(db, param, callback){
     });
 }
 
-let response = {
-    status: 200,
-    data: [],
-    message: null
-};
-
-
 
 mongoClient.connect(mongo_url, function (err, database) {
     assert.equal(null, err);
@@ -80,7 +72,6 @@ mongoClient.connect(mongo_url, function (err, database) {
             }
             res.setHeader("Content-type", "application/json; charset=UTF-8")
             res.json(json);
-            //res.sendFile(path.join(__dirname, "dist/index.html"));
         });
         database.close();
     });
@@ -144,8 +135,6 @@ mongoClient.connect(mongo_url, function (err, database) {
             filterObject.prix.$lte = req.params.prix;
         }
 
-
-
         console.log("req params prix : " + req.params.prix);
         console.log("req params prix : " + JSON.stringify (req.params.date) );
 
@@ -159,30 +148,8 @@ mongoClient.connect(mongo_url, function (err, database) {
             res.end(json);
         });
 
-        // trajetResearch(db, {"message":"/trajets", "filterObject": filterObject}, function (etape, result) {
-        //    res.setHeader("Content-type", "application/json; charset=UTF-8");
-        //    let json = JSON.stringify(result);
-        //    console.log("res: " + json);
-        //    res.end(json); 
-        // });
-
     });
 
-    app.get("/mail", function (req, res) {
-        assert.equal(null, err);
-        let mail = req.params.mail;
-        //console.log("dans /mail");
-        //console.log(db);
-        db.collection("users").find().toArray(function (err, docs) {
-            let json = JSON.stringify({});
-            //console.log(docs);
-            if(docs !== undefined && docs[0] !== undefined)
-                json = docs;
-            //console.log(json);
-            res.json(json);
-        });
-        //database.close();
-    });
 });
 
 
