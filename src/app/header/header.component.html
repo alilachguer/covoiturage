@@ -1,0 +1,17 @@
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" [routerLink]="[{'outlets':{'home':['home']}}]" class="brand-logo">{{title}}</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a [routerLink]="[{'outlets':{'authentification':['auth']}}]" (click)="changeAuthStatus()">connexion</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+          <li><a [routerLink]="[{'outlets':{'inscription':['ins']}}]" (click)="changeInsStatus()">inscription</a></li>
+        </ul>
+    </div>
+  </nav>
+
+<div *ngIf="auth_opened == true">
+  <router-outlet name="authentification"></router-outlet>
+</div>
+<div *ngIf="ins_opened == true">
+    <router-outlet name="inscription"></router-outlet>
+</div>

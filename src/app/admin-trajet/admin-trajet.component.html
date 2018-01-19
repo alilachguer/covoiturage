@@ -1,0 +1,57 @@
+<div class="row">
+  <form class="col s6" (ngSubmit)="createTrajet()">
+    <div class="row">
+        <h5>Creer un nouveau trajet</h5>
+        <div *ngIf="trajet_ajoute !== undefined" class="card-panel teal lighten-2">
+          trajet {{trajet_ajoute.ville_depart}} - {{trajet_ajoute.ville_arrivee}} ajouté
+        </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="depart" type="text" class="validate" [(ngModel)]="depart" name="depart">
+        <label for="depart">ville depart</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="arrivee" type="text" class="validate" [(ngModel)]="arrivee" name="arrivee">
+        <label for="arrivee">ville arrivee</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4">
+        <input id="distance" type="number" step="any" class="validate" [(ngModel)]="distance" name="distance">
+        <label for="distance">distance en km</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4">
+        <input id="temps" type="number" step ="any" class="validate" [(ngModel)]="temps" name="temps">
+        <label for="temps">temps moyen en heures</label>
+      </div>
+    </div>
+    <div class="row">
+      <button type="submit" class="waves-effect waves-light btn">creer</button>
+    </div>
+  </form>
+  <div class="col s6">
+    <h5>Les trajet admin</h5>
+    <table>
+        <thead>
+            <tr>
+                <th>ville depart</th>
+                <th>ville arrivee</th>
+                <th>distance</th>
+                <th>temps moyen</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let trajet of trajets">
+              <tr>
+                  <td>{{trajet.ville_depart}}</td>
+                  <td>{{trajet.ville_arrivee}}</td>
+                  <td>{{trajet.distance}}</td>
+                  <td>{{trajet.temps_moyen}}</td>
+                </tr>
+          </tbody>
+    </table>
+  </div>
+</div>
+      

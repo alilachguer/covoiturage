@@ -1,0 +1,19 @@
+<form (ngSubmit)=fermerCompte()>
+  <div class="row">
+  <div class="col s4">
+    <h3>Users</h3>
+    <h2>{{result}} </h2>
+    <h5>{{mail}} </h5>
+      <select class="browser-default" [(ngModel)]="mail">
+        <option value="" disabled selected>Choose your option</option>
+        <option *ngFor="let user of users" [ngValue]="user.mail" >
+          {{user.mail}}
+        </option>
+      </select>
+      <button type="submit" class="waves-effect waves-light btn">fermer compte</button>
+  </div>
+  </div>
+  <div class="row">
+    
+  </div>
+</form>  
