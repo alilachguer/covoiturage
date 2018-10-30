@@ -1,7 +1,4 @@
 # covoiturage
-projet **Covoiturage** pour l'UE "présentation données web" partie MEAN Stack.
-
-travail réalisé par Ali Lachguer et Mahmoud Tanane.
 
 ### Les collections MongoDB
 - trajets
